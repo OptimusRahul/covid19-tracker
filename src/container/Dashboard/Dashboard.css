@@ -1,0 +1,37 @@
+.Dashboard {
+    background-color: rgb(235, 232, 232);
+}
+
+.Dash-img{
+    margin: 0px;
+    background-image: url('../../assests/images/back-image2.jpg');
+    background-size: cover;
+}
+
+.Chart{
+    background-image: url('../../assests/images/back-image1.jpg');
+    background-size: cover;
+    justify-content: center;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+}
+
+main{
+    padding: 100px;
+    margin-top: 0px;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+}
+
+section.Chart {
+    justify-content: center;
+}
+
+.CountryPicker{
+    display: flex;
+    justify-content: center;
+}

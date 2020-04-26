@@ -1,0 +1,11 @@
+.Chartt {
+    margin: auto;
+    width: 65%;
+    background-color: rgba(0, 0, 0, 0.8); 
+  }
+  
+@media only screen and (max-width: 770px) {
+  .Chartt {
+    width: 100%;
+  }
+}

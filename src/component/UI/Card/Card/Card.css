@@ -1,0 +1,13 @@
+.Card {
+    margin: 0 2em;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    height: 15em;
+    width: 15em;
+    padding: 0;
+    text-align: left;
+    transition: 0.3s;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
