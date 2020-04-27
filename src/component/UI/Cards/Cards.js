@@ -14,6 +14,9 @@ const cards = props => {
                         date={props.date} 
                         index={i}
                         key={i} />
+            else {
+                return null
+            }
         });
     });
     

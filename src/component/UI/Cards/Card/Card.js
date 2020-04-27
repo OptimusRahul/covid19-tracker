@@ -8,7 +8,7 @@ let color = ["indigo", "green", "red"];
 const card = props => {
     let index = `${color[props.index]}`;
     let heading = props.heading.substring(0,1).toUpperCase() + props.heading.substring(1).toLowerCase();
-    return(
+    return( 
         <Card className="Card">
             <Card.Body>
                 <Card.Text>{heading}</Card.Text>   

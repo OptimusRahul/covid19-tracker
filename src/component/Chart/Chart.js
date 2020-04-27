@@ -4,7 +4,7 @@ import { Line } from 'react-chartjs-2';
 import './Chart.css';
 
 const chart = (props) => {
-
+    
     const lineChart = (
         <Line 
             data = {{
@@ -27,6 +27,14 @@ const chart = (props) => {
                     backgroundColor: 'rgba(0, 255, 0, 0.5)',
                     fill: true
                 }],
+                options: {
+                    legend:{
+                        labels:{
+                            display: true,
+                            fontColor: 'blue'
+                        }
+                    }
+                }
             }} />
     );
 

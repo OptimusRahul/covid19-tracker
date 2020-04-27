@@ -1,0 +1,17 @@
+.cards {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+
+@media only screen and (max-width: 770px){
+    .cards{
+        flex-flow: column;
+    }
+}
+
+@media (min-width: 771px) and (max-width: 1080px){
+    .cards{
+        width: 800px;
+    }
+}

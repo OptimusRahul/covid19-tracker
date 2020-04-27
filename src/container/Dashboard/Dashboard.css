@@ -12,6 +12,7 @@
     background-image: url('../../assests/images/back-image1.jpg');
     background-size: cover;
     justify-content: center;
+    height: 30em;
 }
 
 header{
@@ -34,4 +35,21 @@ section.Chart {
 .CountryPicker{
     display: flex;
     justify-content: center;
+}
+
+.CurrentCountry{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 50%;
+    background-color: black; 
+}
+
+@media only screen and (max-width: 770px){
+    .CurrentCountry{
+        display: flex;
+        justify-content: center;
+        /*margin: 0 10px;*/
+        width: 80%;
+    }
 }

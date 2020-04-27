@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { summary, globalStatus, totalStats } from '../../store/api/getTotalStatus';
 import Header from '../../component/Header/Header';
-import Card from '../../component/UI/Card/Cards';
+import Card from '../../component/UI/Cards/Cards';
 import CountryPicker from '../../component/UI/CountryPicker/CountryPicker';
 import Spinner from '../../component/UI/Spinner/Spinner'
 import Chart from '../../component/Chart/Chart'
@@ -92,9 +92,10 @@ class Dashboard extends Component {
             Object.values(this.state.summary.Countries).map(res => {
                 if(country === res["Country"]){
                     singleEntity = res;
+                    return singleEntity;
                 }
+                return singleEntity;
             })
-            console.log(singleEntity)
             this.setState({
                 Country:{
                     infected: {
@@ -141,6 +142,9 @@ class Dashboard extends Component {
                     <header>
                         <Header />
                     </header>
+                    <div className="CurrentCountry">
+                        <h2 style={{color: 'white'}}>{this.state.currentCountry} Status </h2>
+                    </div>
                     <main>
                         {this.state.summary.singleEntity || this.state.summary.Global.infected.Total !== 0 ? <Card stats={stats} date={this.state.summary.Date} /> : <Spinner />}
                     </main>
