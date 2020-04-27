@@ -39,8 +39,13 @@ const chart = (props) => {
     );
 
     return (
-        <div className="Chartt">
-            {lineChart}
+        <div className="container">
+            <div className="heading">
+                <h2 style={{color: 'white'}}>Current {props.currentCountry} Status</h2>
+            </div>
+            <div className="Chartt">
+                {lineChart}
+            </div>
         </div>
     )
 };

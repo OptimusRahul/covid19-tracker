@@ -46,6 +46,23 @@ section.Chart {
 }
 
 @media only screen and (max-width: 770px){
+    .Chart{
+        height: 20em;
+    }
+
+    .CurrentCountry{
+        display: flex;
+        justify-content: center;
+        /*margin: 0 10px;*/
+        width: 80%;
+    }
+}
+
+@media (min-width: 771px) and (max-width: 1080px){
+    .Chart{
+        height: 100%;
+    }
+
     .CurrentCountry{
         display: flex;
         justify-content: center;
