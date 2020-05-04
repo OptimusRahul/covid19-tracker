@@ -1,12 +1,9 @@
 import React from 'react';
 
+import './Spinner.css';
+
 const spinner = () => (
-    <div className="lds-ring">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
+    <div className='loader'>Loading...</div>
 );
 
 export default spinner;

@@ -44,7 +44,7 @@ class Dashboard extends Component {
             },
             "Date": null   
         },
-        currentCountry: null,
+        currentCountry: 'GLobal',
         Chart: null,
         singleEntity: false,
         status: false
@@ -71,7 +71,7 @@ class Dashboard extends Component {
                     }
                 },
                 Countries: status.data.Countries,
-                Date: status.data.Date.substring(0,10)  
+                Date: status.data.Date//.substring(0,10)  
             },
             currentCountry: 'Global',
             status: true,
@@ -83,8 +83,10 @@ class Dashboard extends Component {
         if(country === 'Global'){
             this.setState({
                 singleEntity: false,
-                Chart: await globalStatus()
+                Chart: await globalStatus(),
+                currentCountry: 'Global'
             });
+
         }
         else {
             let countryChart = await totalStats(country);
@@ -136,6 +138,7 @@ class Dashboard extends Component {
                 })
             })*/
         }
+        console.log('adf',this.state.currentCountry);
         return (
             <div className="Dashboard">
                 <div className="Dash-img">
