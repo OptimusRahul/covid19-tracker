@@ -1,0 +1,42 @@
+.Card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    border-radius: 5px;
+
+    background: #403d3d;
+    width: 95%;
+    margin: 2rem auto;
+}
+
+.Card__Heading {
+    display: flex;
+    justify-content: center;
+
+    font-size: 1rem;
+    color: #fff;
+}
+
+.Card__Content {
+    display: flex;
+    justify-content: center;
+
+    font-size: 2rem;
+    font-weight: 500;
+    color: red;
+}
+
+@media only screen and (max-width: 1023px){
+    .Card {
+        height: 90vh;
+        margin: 2rem auto;
+    }
+
+    .Card__Heading {
+        font-size: 2rem;
+    }
+    .Card__Content {
+        font-size: 3rem;
+    }
+}

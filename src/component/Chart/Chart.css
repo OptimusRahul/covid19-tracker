@@ -1,43 +1,22 @@
 .container{
-  padding: 10px;
+  width: 100%;
+  height: calc(100vh - 40rem);
 }
 
 .Chartt {
-  margin: 10px auto;
-  width: 65%;
-  background-color: rgba(0, 0, 0, 0.8); 
-}
-
-.heading{
-  display: flex;
-  justify-content: center;
-  margin: auto;
-  width: 50%;
-  background-color: black; 
+  margin: 31px 0px 0px -9px;
+  width: 104%;
+  background-color: #403d3d; 
 }
   
 @media only screen and (max-width: 770px) {
   .Chartt {
     width: 100%;
   }
-
-  .heading{
-      display: flex;
-      justify-content: center;
-      /*margin: 0 10px;*/
-      width:100%;
-  }
 }
 
 @media (min-width: 771px) and (max-width: 1080px){
   .Chartt {
     width: 100%;
-  }
-
-  .heading{
-      display: flex;
-      justify-content: center;
-      /*margin: 0 10px;*/
-      width:100%;
   }
 }

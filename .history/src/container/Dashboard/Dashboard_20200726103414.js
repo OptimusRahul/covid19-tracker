@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col, Switch, Carousel, Tooltip, Spin } from 'antd';
 import { GlobalOutlined, LoadingOutlined } from '@ant-design/icons';
 
-import { totalStats, globalStatus, summary, getCountriesData } from '../../services/api/index';
+import { totalStats, globalStatus, summary, getCountriesData } from '../../services/api/getTotalStatus';
 import MapBox from '../../component/MapBox/Mapbox';
 import Chart from '../../component/Chart/Chart';
 import Card from '../../component/UI/Card/Card';

@@ -1,0 +1,15 @@
+.List {
+    /*display: flex;*/
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+
+    overflow-y: scroll;
+    flex: 1;
+
+    position: relative;
+
+    background: #403d3d;
+    width: 95%;
+    margin: -28px auto;
+}

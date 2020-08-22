@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col, Switch, Carousel, Tooltip, Spin } from 'antd';
 import { GlobalOutlined, LoadingOutlined } from '@ant-design/icons';
 
-import { totalStats, globalStatus, summary, getCountriesData } from '../../services/api/index';
+import { totalStats, globalStatus, summary, getCountriesData } from '../../services/api/getTotalStatus';
 import MapBox from '../../component/MapBox/Mapbox';
 import Chart from '../../component/Chart/Chart';
 import Card from '../../component/UI/Card/Card';
@@ -136,9 +136,9 @@ class Dashboard extends Component {
     render() {
         let currentRenderingComponent;
         const spinner = <LoadingOutlined style={{ fontSize: 24 }} spin />
-        if(this.state.loading) {
-            currentRenderingComponent = <Spin indicator={spinner} />;
-        } else {
+        // if(this.state.loading) {
+        //     currentRenderingComponent = <Spin indicator={spinner} />;
+        // } else {
             const { dotPosition } = this.state;
             let data = this.state.globalSummary;
             let totalCaseCount = 0, totalDemiseCount = 0, totalRecoveredCount = 0;
@@ -192,57 +192,87 @@ class Dashboard extends Component {
                chart = <Chart plotData={this.state.chart} color={bg} />;
             }
 
-            currentRenderingComponent = (
-                <>
-                    <div className={this.state.dark ? "dark-mode Desktop" : "light-mode Desktop"}>
-                        <Row className="Heading" style={{ background: background, color: color }}>
-                            <Col className="Heading__Col" style={{ background: bg, color: color }}>
-                                <GlobalOutlined className="icon" onClick={this.covidGlobalHandler} />
-                                Coronavirus (Covid-19) Global Report
-                                <Switch defaultChecked onChange={this.toggleTheme} />
-                            </Col>
-                        </Row>
-                        <Row className="MainContainer" style={{ background }}>
-                            <Col className="Common_Display" span={4}>
-                                {totalCases}
-                                {totalCaseList}
-                            </Col>
-                            <Col span={12}>
-                                {mapBox}
-                            </Col>
-                            <Col className="Col_Height" span={8}>
-                                <Row>
-                                    <Col span={12}>
-                                        {totalDeaths}
-                                        {totalDeathList}
-                                    </Col>
-                                    <Col span={12}>
-                                        {totalRecovered}
-                                        {totalRecoverdList}
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    {chart}
-                                </Row>
-                            </Col>
-                        </Row>
-                    </div>
+            // currentRenderingComponent = (
+            //     <>
+
+            //     </>
+            // );
+        //}
+
+        return (
+            <div className={this.state.dark ? "dark-mode Desktop" : "light-mode Desktop"} style={{ height: '100vh' }}>
+                <Row className="Heading" style={{ background: background, color: color }}>
+                        <Col className="Heading__Col" style={{ background: bg, color: color }}>
+                            <GlobalOutlined className="icon" onClick={this.covidGlobalHandler} />
+                            Coronavirus (Covid-19) Global Report
+                            <Switch defaultChecked onChange={this.toggleTheme} />
+                        </Col>
+                    </Row>
+                    <Row className="MainContainer" style={{ background }}>
+                        <Col className="Common_Display" span={4}>
+                            {totalCases}
+                            {totalCaseList}
+                        </Col>
+                        <Col span={12}>
+                            {mapBox}
+                        </Col>
+                        <Col className="Col_Height" span={8}>
+                            <Row>
+                                <Col span={12}>
+                                    {totalDeaths}
+                                    {totalDeathList}
+                                </Col>
+                                <Col span={12}>
+                                    {totalRecovered}
+                                    {totalRecoverdList}
+                                </Col>
+                            </Row>
+                            <Row>
+                                {chart}
+                            </Row>
+                        </Col>
+                    </Row>
                     <div className="MobileView" style={{ display: 'flex', flexFlow: 'column', background }}>
-                        <Carousel dotPosition={dotPosition} style={{ color: 'red' }}>
+                        <Carousel dotPosition={dotPosition} autoplay style={{ color: 'red' }}>
                             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
-                                {this.cardDataHandler(totalCaseCount, 'Confirmed', '' , 'red', bg, color)}
+                            <Card
+                                hasError={this.state.hasError}
+                                count={totalCaseCount}
+                                title='Confirm'
+                                height='5.5rem'
+                                color="red"
+                                bg='black'
+                                heading={color}/>
                             </div>
-                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
-                                {this.cardDataHandler(totalDemiseCount, 'Deaths', '', color, bg, color)}
-    
+                            <div>
+                            <Card
+                                hasError={this.state.hasError}
+                                count={totalCaseCount}
+                                title='Confirm'
+                                height='5.5rem'
+                                color="red"
+                                bg='black'
+                                heading={color}/>
                             </div>
-                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
-                                {this.cardDataHandler(totalRecoveredCount, 'Recovered', '', 'green', bg, color)}
+                            <div>
+                            <Card
+                                hasError={this.state.hasError}
+                                count={totalCaseCount}
+                                title='Confirm'
+                                height='5.5rem'
+                                color="red"
+                                bg='black'
+                                heading={color}/>
                             </div>
                         </Carousel>
                         <div className="MobileView--nav">
                                 <Tooltip title="countries">
-                                    {drawer}
+                                <Drawer
+                                    dark={this.state.dark}
+                                    bg={bg}
+                                    color={color}
+                                    countrySummary={this.state.countries}
+                                    currentCountry={this.setCurrentCountryData}/>
                                 </Tooltip>
                                 <Tooltip title="Global">
                                     <button onClick={this.covidGlobalHandler} style={{ border: 'none', background: 'transparent' }}>
@@ -259,13 +289,6 @@ class Dashboard extends Component {
                                 </Tooltip>
                         </div>
                     </div>
-                </>
-            );
-        }
-
-        return (
-            <div style={{ height: '100vh' }}>
-                {currentRenderingComponent}
             </div>
         )
     }

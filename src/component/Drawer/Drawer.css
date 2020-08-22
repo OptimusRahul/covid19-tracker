@@ -1,0 +1,14 @@
+/*.custom-drawer-dark .ant-drawer-title {
+    color: #fff;
+}
+
+.custom-drawer-light .ant-drawer-title {
+    color: #000;
+}*/
+
+
+@media screen and (orientation: portrait) {
+    .custom-drawer-dark .ant-drawer-title {
+        color: red;
+    }
+}

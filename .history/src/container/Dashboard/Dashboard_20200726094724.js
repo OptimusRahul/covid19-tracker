@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col, Switch, Carousel, Tooltip, Spin } from 'antd';
 import { GlobalOutlined, LoadingOutlined } from '@ant-design/icons';
 
-import { totalStats, globalStatus, summary, getCountriesData } from '../../services/api/index';
+import { totalStats, globalStatus, summary, getCountriesData } from '../../services/api/getTotalStatus';
 import MapBox from '../../component/MapBox/Mapbox';
 import Chart from '../../component/Chart/Chart';
 import Card from '../../component/UI/Card/Card';
@@ -194,7 +194,7 @@ class Dashboard extends Component {
 
             currentRenderingComponent = (
                 <>
-                    <div className={this.state.dark ? "dark-mode Desktop" : "light-mode Desktop"}>
+                    <>
                         <Row className="Heading" style={{ background: background, color: color }}>
                             <Col className="Heading__Col" style={{ background: bg, color: color }}>
                                 <GlobalOutlined className="icon" onClick={this.covidGlobalHandler} />
@@ -226,18 +226,17 @@ class Dashboard extends Component {
                                 </Row>
                             </Col>
                         </Row>
-                    </div>
+                    </>
                     <div className="MobileView" style={{ display: 'flex', flexFlow: 'column', background }}>
-                        <Carousel dotPosition={dotPosition} style={{ color: 'red' }}>
+                        <Carousel dotPosition={dotPosition} autoplay style={{ color: 'red' }}>
                             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
-                                {this.cardDataHandler(totalCaseCount, 'Confirmed', '' , 'red', bg, color)}
+                                HI
                             </div>
-                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
-                                {this.cardDataHandler(totalDemiseCount, 'Deaths', '', color, bg, color)}
-    
+                            <div>
+                                Hello
                             </div>
-                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
-                                {this.cardDataHandler(totalRecoveredCount, 'Recovered', '', 'green', bg, color)}
+                            <div>
+                                bolo
                             </div>
                         </Carousel>
                         <div className="MobileView--nav">
@@ -264,7 +263,7 @@ class Dashboard extends Component {
         }
 
         return (
-            <div style={{ height: '100vh' }}>
+            <div className={this.state.dark ? "dark-mode Desktop" : "light-mode Desktop"} style={{ height: '100vh' }}>
                 {currentRenderingComponent}
             </div>
         )
