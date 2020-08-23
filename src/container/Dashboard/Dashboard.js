@@ -52,7 +52,6 @@ class Dashboard extends Component {
 
     countryDataHandler = async() => {
         const data = await getCountriesData();
-        console.log(data);
         if(data !== null || data !== undefined) {
             let countryMap = new Map();
             data.data.data.map(item => {
@@ -67,7 +66,6 @@ class Dashboard extends Component {
 
     covidGlobalHandler = async() => {
         const data = await summary();
-        console.log(data);
         if(data !== null || data !== undefined) {
             this.setState({ globalSummary: data.data.Global, countrySpecific: false, countrySummary: data.data.Countries, loading: false })
         } else {
