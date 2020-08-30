@@ -10,8 +10,6 @@ const chart = (props) => {
     if(props.plotData && props.plotData.length) {
         lineChart = (
             <Line 
-                // width='100px'
-                //height='100%'
                 data = {{
                     labels: props.plotData.map((res) => res.date),
                     datasets: [{
@@ -51,7 +49,7 @@ const chart = (props) => {
 
     return (
         <div className="container">
-            <div className="Chartt" style={{ backgroundColor: props.color }}>
+            <div className="chart" style={{ backgroundColor: props.color }}>
                 {lineChart}
             </div>
         </div>

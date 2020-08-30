@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col, Switch, Carousel, Tooltip, Spin } from 'antd';
 import { GlobalOutlined, LoadingOutlined } from '@ant-design/icons';
 
-import { totalStats, globalStatus, summary, getCountriesData } from '../../services/api/index';
+import { totalStats, globalStatus, summary, getCountriesData } from '../../api/index';
 import MapBox from '../../component/MapBox/Mapbox';
 import Chart from '../../component/Chart/Chart';
 import Card from '../../component/UI/Card/Card';
@@ -139,6 +139,11 @@ class Dashboard extends Component {
             country={color}/>
     );
 
+    globalHandler = () => {
+        this.covidGlobalHandler();
+        this.chartDataHandler();
+    }
+
     render() {
         let currentRenderingComponent;
         const spinner = <LoadingOutlined style={{ fontSize: 24 }} spin />
@@ -202,23 +207,23 @@ class Dashboard extends Component {
             
             currentRenderingComponent = (
                 <>
-                    <div className={this.state.dark ? "dark-mode Desktop" : "light-mode Desktop"}>
-                        <Row className="Heading" style={{ background: background, color: color }}>
-                            <Col className="Heading__Col" style={{ background: bg, color: color }}>
-                                <GlobalOutlined className="icon" onClick={this.covidGlobalHandler} />
+                    <div className={this.state.dark ? "dark-mode desktop" : "light-mode desktop"}>
+                        <Row className="heading" style={{ background: background, color: color }}>
+                            <Col className="heading__col" style={{ background: bg, color: color }}>
+                                <GlobalOutlined className="icon" onClick={this.globalHandler} />
                                 Coronavirus (Covid-19) Global Report
                                 <Switch defaultChecked onChange={this.toggleTheme} />
                             </Col>
                         </Row>
-                        <Row className="MainContainer" style={{ background }}>
-                            <Col className="Common_Display" span={4}>
+                        <Row className="main__container" style={{ background }}>
+                            <Col span={4}>
                                 {totalCases}
                                 {totalCaseList}
                             </Col>
                             <Col span={12}>
                                 {mapBox}
                             </Col>
-                            <Col className="Col_Height" span={8}>
+                            <Col className="col__height" span={8}>
                                 <Row>
                                     <Col span={12}>
                                         {totalDeaths}
@@ -235,7 +240,7 @@ class Dashboard extends Component {
                             </Col>
                         </Row>
                     </div>
-                    <div className="MobileView" style={{ display: 'flex', flexFlow: 'column', background }}>
+                    <div className="mobile__view" style={{ display: 'flex', flexFlow: 'column', background }}>
                         <Carousel dotPosition={dotPosition} autoplay style={{ color: 'red' }}>
                             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
                                 {this.cardDataHandler(totalCaseCount, 'Confirmed', '' , 'red', bg, color)}
@@ -248,7 +253,7 @@ class Dashboard extends Component {
                                 {this.cardDataHandler(totalRecoveredCount, 'Recovered', '', 'green', bg, color)}
                             </div>
                         </Carousel>
-                        <div className="MobileView--nav">
+                        <div className="mobile__view--nav">
                                 <Tooltip title="countries">
                                     {drawer}
                                 </Tooltip>

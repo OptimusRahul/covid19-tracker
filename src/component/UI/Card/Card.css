@@ -1,4 +1,4 @@
-.Card {
+.card {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,7 +10,7 @@
     margin: 0 auto;
 }
 
-.Card__Heading {
+.card__heading {
     display: flex;
     justify-content: center;
 
@@ -18,7 +18,7 @@
     color: #fff;
 }
 
-.Card__Content {
+.card__content {
     display: flex;
     justify-content: center;
 
@@ -28,15 +28,15 @@
 }
 
 @media only screen and (max-width: 1023px){
-    .Card {
+    .card {
         height: 90vh;
         margin: 2rem auto;
     }
 
-    .Card__Heading {
+    .card__heading {
         font-size: 2rem;
     }
-    .Card__Content {
+    .card__content {
         font-size: 3rem;
     }
 }

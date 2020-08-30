@@ -105,6 +105,9 @@ class Mapbox extends Component {
             };
             
             if(this.props.countrySpecific === true) {
+                new mapboxgl.Marker()
+                    .setLngLat([ this.props.lng, this.props.lat ])
+                    .addTo(map);
                 map.flyTo({
                     center: [ this.props.lng, this.props.lat ], 
                     essential: true,
@@ -155,7 +158,7 @@ class Mapbox extends Component {
        this.mapBoxHandler();
         return (
             <div>
-                <div ref={el => this.mapContainer = el} className="mapContainer" />
+                <div ref={el => this.mapContainer = el} className="map__container" />
             </div>
         );
     }

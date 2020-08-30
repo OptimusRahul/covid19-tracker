@@ -1,4 +1,4 @@
-.mapContainer {
+.map__container {
     position: absolute;
     height: calc(100vh - 4.2rem);
     top: 0;

@@ -9,7 +9,7 @@
     color: #999;
 }
 
-.Heading {
+.heading {
     display: flex;
     background: #000;
     overflow: hidden;
@@ -21,7 +21,7 @@
     color: #A2A2A2
 }
 
-.Heading__Col {
+.heading__col {
     display: flex;
     justify-content: space-evenly;
     margin: 5px;
@@ -39,19 +39,13 @@
     font-size: 3rem;
 }
 
-.MainContainer {
+.main__container {
     display: flex;
-    /*height: calc(100vh - 2rem);*/
     background:#000;
     background-position: cover;
 }
 
-.Common_Display {
-    /*display: flex;*/
-}
-
-.Col_Height {
-    /*display: flex;*/
+.col__height {
     justify-content: space-evenly;
     width: 100%;
     max-height: 20rem;
@@ -66,11 +60,7 @@
     overflow: hidden;
 }
 
-/* .MobileView { 
-    display: none !important;
-} */
-
-.MobileView--nav {
+.mobile__view--nav {
     display: flex;
     justify-content: space-around;
     align-items: baseline;
@@ -85,11 +75,11 @@
 
 
 @media only screen and (max-width: 1023px) {
-    .Desktop {
+    .desktop {
         display: none;
     }
 
-    .MobileView {
+    .mobile__view {
         display: block !important;
         height: 109vh;
         position: relative;
@@ -97,19 +87,19 @@
 }
 
 @media screen and (orientation: portrait) {
-    .MobileView {
+    .mobile__view {
         display: block !important;
         height: 100vh;
         position: relative;
     }
 
-    .MobileView--nav {
+    .mobile__view--nav {
         margin: 70px auto;
     }
 }
 
 @media only screen and (min-width: 1024px) {
-    .MobileView {
+    .mobile__view {
         display: none !important;
     }
 }

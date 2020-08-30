@@ -4,7 +4,7 @@
   /*height: calc(100vh - 80rem);*/
 }
 
-.Chartt {
+.chart {
   /* margin: 0;
   left: 0;
   width: 104%; */
@@ -18,13 +18,13 @@
 }
 
 @media only screen and (max-width: 770px) {
-  .Chartt {
+  .chart {
     width: 100%;
   }
 }
 
 @media (min-width: 771px) and (max-width: 1080px){
-  .Chartt {
+  .chart {
     width: 100%;
   }
 }
