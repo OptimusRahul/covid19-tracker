@@ -108,7 +108,6 @@ class Mapbox extends Component {
                 map.flyTo({
                     center: [ this.props.lng, this.props.lat ], 
                     essential: true,
-                    zoom: 8
                 });
             } else {
                 map.on('load', () => {

@@ -22,7 +22,15 @@ class Dashboard extends Component {
             lat: 34,
             zoom: 1.5,
             heading: 'Coronavirus COVID 19 Global Cases',
-            globalSummary: null,
+            // globalSummary: null,
+            globalSummary: {
+                "NewConfirmed": 100282,
+                "TotalConfirmed": 1162857,
+                "NewDeaths": 5658,
+                "TotalDeaths": 63263,
+                "NewRecovered": 15405,
+                "TotalRecovered": 230845
+              },
             countries: null,
             map: null,
             countrySpecific: false,
@@ -188,8 +196,10 @@ class Dashboard extends Component {
             let chart = <Spin indicator={spinner} />;
             if(this.state.chart) {
                chart = <Chart plotData={this.state.chart} color={bg} />;
+               let root = document.documentElement
+               root.style.setProperty('--primaryDark', '#fff')
             }
-
+            
             currentRenderingComponent = (
                 <>
                     <div className={this.state.dark ? "dark-mode Desktop" : "light-mode Desktop"}>
@@ -226,7 +236,7 @@ class Dashboard extends Component {
                         </Row>
                     </div>
                     <div className="MobileView" style={{ display: 'flex', flexFlow: 'column', background }}>
-                        <Carousel dotPosition={dotPosition} style={{ color: 'red' }}>
+                        <Carousel dotPosition={dotPosition} autoplay style={{ color: 'red' }}>
                             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
                                 {this.cardDataHandler(totalCaseCount, 'Confirmed', '' , 'red', bg, color)}
                             </div>

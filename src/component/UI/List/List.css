@@ -7,9 +7,10 @@
     overflow-y: scroll;
     flex: 1;
 
-    position: relative;
+    /*position: relative;*/
 
     background: #403d3d;
     width: 95%;
-    margin: -28px auto;
+    margin: 5px auto;
+    /*margin: -28px auto;*/
 }

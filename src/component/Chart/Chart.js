@@ -10,6 +10,8 @@ const chart = (props) => {
     if(props.plotData && props.plotData.length) {
         lineChart = (
             <Line 
+                // width='100px'
+                //height='100%'
                 data = {{
                     labels: props.plotData.map((res) => res.date),
                     datasets: [{

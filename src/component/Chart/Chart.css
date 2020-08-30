@@ -1,14 +1,22 @@
 .container{
-  width: 100%;
-  height: calc(100vh - 40rem);
+  position: relative;
+  padding: 0 5px;
+  /*height: calc(100vh - 80rem);*/
 }
 
 .Chartt {
-  margin: 31px 0px 0px -9px;
-  width: 104%;
-  background-color: #403d3d; 
+  /* margin: 0;
+  left: 0;
+  width: 104%; */
+  /* padding: 0 5px; */
+  overflow: hidden;
+  background-color: var(--primaryDark);
 }
-  
+
+.chartjs-render-monitor {
+  height: 12.3rem !important;
+}
+
 @media only screen and (max-width: 770px) {
   .Chartt {
     width: 100%;

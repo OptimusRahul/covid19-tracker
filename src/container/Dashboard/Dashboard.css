@@ -41,18 +41,17 @@
 
 .MainContainer {
     display: flex;
-    height: calc(100vh - 2rem);
+    /*height: calc(100vh - 2rem);*/
     background:#000;
     background-position: cover;
-    margin-top: -32px
 }
 
 .Common_Display {
-    display: flex;
+    /*display: flex;*/
 }
 
 .Col_Height {
-    display: flex;
+    /*display: flex;*/
     justify-content: space-evenly;
     width: 100%;
     max-height: 20rem;
