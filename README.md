@@ -1,68 +1,192 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# COVID-19 Global Tracker - Modernized 🦠📊
 
-## Available Scripts
+A modern, responsive COVID-19 dashboard built with React 18, TypeScript, and Tailwind CSS. This project has been completely redesigned with modern architecture patterns and working APIs.
 
-In the project directory, you can run:
+## ✨ Features
 
-### `yarn start`
+- **Real-time COVID-19 Data**: Live statistics with auto-refresh
+- **Interactive Maps**: Global and country-specific visualizations using Leaflet
+- **Modern Charts**: Beautiful visualizations with Chart.js and Recharts
+- **Dark/Light Theme**: Toggle between themes with system preference detection
+- **Responsive Design**: Mobile-first design that works on all devices
+- **TypeScript**: Full type safety and better developer experience
+- **Modern Architecture**: Functional components with hooks, Zustand for state management
+- **Performance**: Optimized with React Query for data caching and background updates
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 🚀 Modern Tech Stack
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- **Frontend**: React 18 + TypeScript + Vite
+- **Styling**: Tailwind CSS + shadcn/ui components
+- **State Management**: Zustand + React Query
+- **Maps**: React Leaflet
+- **Charts**: Chart.js + Recharts
+- **Icons**: Lucide React
+- **Build Tool**: Vite (replaced Create React App)
+- **API**: API Ninjas COVID-19 API (working alternative)
 
-### `yarn test`
+## 🛠️ Setup Instructions
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
+- Node.js 18+ and npm/yarn
 
-### `yarn build`
+### Installation
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Clone the repository**:
+   ```bash
+   git clone <repository-url>
+   cd covid19-tracker
+   ```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+2. **Install dependencies**:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Environment Setup**:
+   ```bash
+   cp .env.example .env
+   ```
+   
+   Edit `.env` and add your API key:
+   ```env
+   VITE_API_NINJAS_KEY=your_api_key_here
+   ```
+   
+   Get a free API key from: https://api.api-ninjas.com/
 
-### `yarn eject`
+4. **Start the development server**:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+5. **Open your browser** and visit `http://localhost:3000`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Build for Production
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+npm run build
+npm run preview
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 🏗️ Architecture Improvements
 
-## Learn More
+### Old vs New Architecture
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+| Aspect | Old (v0.1.0) | New (v0.2.0) |
+|--------|--------------|--------------|
+| React | Class components | Functional components + Hooks |
+| State | Component state | Zustand + React Query |
+| Styling | Bootstrap + CSS | Tailwind CSS + shadcn/ui |
+| Build Tool | Create React App | Vite |
+| Language | JavaScript | TypeScript |
+| API | Deprecated COVID APIs | Working API Ninjas API |
+| UI Components | Material-UI + Ant Design | shadcn/ui (Radix UI + Tailwind) |
+| Data Fetching | Axios only | React Query + Axios |
+| Maps | Mapbox GL | React Leaflet |
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Key Improvements
 
-### Code Splitting
+1. **Modern React Patterns**:
+   - Functional components with hooks
+   - Custom hooks for data fetching
+   - Context providers for theme management
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+2. **Better Developer Experience**:
+   - TypeScript for type safety
+   - Vite for faster development
+   - ESLint configuration for code quality
 
-### Analyzing the Bundle Size
+3. **Performance Optimizations**:
+   - React Query for intelligent caching
+   - Background data refetching
+   - Optimistic updates
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+4. **Enhanced UI/UX**:
+   - Modern design with Tailwind CSS
+   - Consistent component library
+   - Smooth animations and transitions
+   - Mobile-responsive design
 
-### Making a Progressive Web App
+## 📱 Features
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+### Dashboard Overview
+- Global COVID-19 statistics
+- Country-specific data views
+- Interactive world map
+- Time-series charts
+- Dark/light theme toggle
 
-### Advanced Configuration
+### Data Visualization
+- **Stats Cards**: Animated counters for key metrics
+- **Interactive Map**: Click countries for detailed view
+- **Charts**: Historical trends with Chart.js
+- **Country List**: Searchable and sortable country data
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+### Mobile Experience
+- Responsive design
+- Touch-friendly interface
+- Mobile navigation drawer
+- Optimized performance
 
-### Deployment
+## 🔧 Development
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+### Available Scripts
 
-### `yarn build` fails to minify
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Project Structure
+
+```
+src/
+├── components/          # React components
+│   ├── ui/             # Reusable UI components
+│   ├── Dashboard.tsx   # Main dashboard component
+│   └── ThemeProvider.tsx
+├── hooks/              # Custom React hooks
+├── lib/                # Utility functions
+├── services/           # API services
+├── store/              # Zustand stores
+├── types/              # TypeScript type definitions
+└── main.tsx           # Application entry point
+```
+
+## 🌐 API Integration
+
+The app now uses the API Ninjas COVID-19 API, which provides:
+- Global statistics
+- Country-specific data
+- Historical time-series data
+- Reliable uptime and response times
+
+### Fallback Strategy
+- Mock data for development
+- Graceful error handling
+- Offline-first approach with cached data
+
+## 🚧 Future Enhancements
+
+The following features are planned for future releases:
+- Real-time notifications
+- Data export functionality
+- Advanced filtering options
+- Vaccination data integration
+- PWA capabilities
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+---
+
+**Note**: This is a modernized version of the original COVID-19 tracker. The APIs have been updated to use working endpoints, and the entire codebase has been rewritten with modern React patterns and TypeScript.
