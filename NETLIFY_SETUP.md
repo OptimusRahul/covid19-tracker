@@ -43,7 +43,10 @@ NODE_VERSION=22
 NODE_OPTIONS="--max-old-space-size=4096"
 ```
 
-**Note**: `NODE_ENV` is not set during build to ensure devDependencies are installed. Setting `NODE_ENV=production` would prevent tools like Vite from being installed.
+**Important Notes**:
+- `NODE_ENV` is not set during build to ensure devDependencies are installed
+- `package-lock.json` must be committed to the repository for consistent dependency versions
+- Without the lock file, Netlify may install different versions than your local environment
 
 ## Build Settings
 
@@ -135,6 +138,11 @@ The deployment should now work correctly with proper SPA routing, security heade
 4. **DevDependencies Not Installed**: If NODE_ENV=production prevents devDependencies
    - Remove `NODE_ENV = "production"` from netlify.toml build environment
    - npm won't install devDependencies when NODE_ENV=production
+
+5. **Missing package-lock.json**: If package-lock.json is not in repository
+   - Remove `package-lock.json` from .gitignore file
+   - Commit package-lock.json to repository for consistent dependency versions
+   - Without lock file, Netlify may install different versions causing conflicts
 
 ### "npm ci" Lock File Error
 **Problem**: `npm ci` requires package-lock.json but can't find it
