@@ -1,13 +1,15 @@
 [build]
-  # Build command
-  command = "npm run build"
+  # Explicit install step to ensure all dependencies are installed
+  command = "npm ci && npm run build"
   
   # Directory to publish (Vite default)
   publish = "dist"
 
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "22"
   NODE_ENV = "production"
+  # Force npm to install devDependencies
+  NODE_OPTIONS = "--max-old-space-size=4096"
 
 # SPA redirect rule - handles client-side routing
 [[redirects]]

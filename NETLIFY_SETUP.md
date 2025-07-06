@@ -40,15 +40,17 @@ REACT_APP_ENABLE_EXPORT=true
 REACT_APP_ENABLE_SHORTCUTS=true
 REACT_APP_ENABLE_PWA=false
 NODE_ENV=production
+NODE_VERSION=22
+NODE_OPTIONS="--max-old-space-size=4096"
 ```
 
 ## Build Settings
 
 In Netlify dashboard, verify these settings:
 
-- **Build command**: `npm run build`
+- **Build command**: `npm ci && npm run build`
 - **Publish directory**: `dist`
-- **Node.js version**: 18.x (set in netlify.toml)
+- **Node.js version**: 22.x (set in netlify.toml)
 
 ## Getting API Keys
 
@@ -100,3 +102,114 @@ After deployment, check:
 4. The failing checks should now pass
 
 The deployment should now work correctly with proper SPA routing, security headers, and build configuration. 
+
+## Build Process
+
+1. **Dependencies Installation**: `npm ci`
+   - Installs all dependencies including devDependencies
+   - Faster and more reliable than `npm install` for CI/CD
+   - Uses package-lock.json if available
+
+2. **Build**: `npm run build`
+   - Runs `vite build` to create production bundle
+   - Outputs to `dist/` directory
+
+## Common Issues & Solutions
+
+### "vite: not found" Error
+**Problem**: Vite command not available during build
+**Solution**: Ensure `npm ci` runs before build command
+- Build command should be: `npm ci && npm run build`
+- Vite must be in devDependencies
+
+### Node Version Issues
+**Problem**: Node version mismatch
+**Solution**: Specify Node version in netlify.toml:
+```toml
+[build.environment]
+  NODE_VERSION = "22"
+```
+
+### Memory Issues
+**Problem**: Build fails due to memory constraints
+**Solution**: Increase memory limit:
+```toml
+[build.environment]
+  NODE_OPTIONS = "--max-old-space-size=4096"
+```
+
+## Security Headers
+
+The configuration includes security headers for:
+- XSS protection
+- Content type sniffing prevention
+- Frame options (prevents clickjacking)
+- Referrer policy
+- Permissions policy
+
+## SPA Routing
+
+Single Page Application routing is handled with:
+```toml
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+```
+
+This ensures all routes are served by the React app.
+
+## Deployment Steps
+
+1. **Connect Repository**: Link your GitHub repository to Netlify
+2. **Configure Build Settings**: Netlify should auto-detect settings from netlify.toml
+3. **Deploy**: Trigger deployment manually or via git push
+4. **Monitor**: Check build logs for any issues
+
+## Verification
+
+After deployment, verify:
+- [ ] Site loads correctly
+- [ ] All routes work (SPA routing)
+- [ ] API calls function properly
+- [ ] Security headers are applied
+- [ ] Static assets are cached properly
+
+## Support
+
+For additional help:
+- Check Netlify build logs for specific error messages
+- Verify all dependencies are listed in package.json
+- Ensure Node version compatibility
+- Test build locally with `npm run build` 
+
+## Updated Configuration:
+
+1. **`netlify.toml`**:
+   - Changed `NODE_VERSION = "22"` to match your Netlify build settings
+   - This ensures consistency between your Netlify dashboard settings and the configuration file
+
+2. **`NETLIFY_SETUP.md`**:
+   - Updated all references from Node 18 to Node 22
+   - Documentation now reflects the correct Node version
+
+## Why This Matters:
+
+- **Consistency**: Both your Netlify dashboard and `netlify.toml` now specify Node 22
+- **No Conflicts**: Prevents any potential version conflicts during build
+- **Latest Features**: Node 22 includes the latest performance improvements and features
+
+## Current Build Configuration:
+
+```toml
+[build]
+  command = "npm ci && npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+  NODE_ENV = "production"
+  NODE_OPTIONS = "--max-old-space-size=4096"
+```
+
+Your build should now use Node 22 consistently and the `vite: not found` error should be resolved. The configuration is now aligned with your Netlify settings! 
