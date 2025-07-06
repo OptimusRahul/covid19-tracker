@@ -48,7 +48,7 @@ NODE_OPTIONS="--max-old-space-size=4096"
 
 In Netlify dashboard, verify these settings:
 
-- **Build command**: `npm ci && npm run build`
+- **Build command**: `npm install && npm run build`
 - **Publish directory**: `dist`
 - **Node.js version**: 22.x (set in netlify.toml)
 
@@ -105,9 +105,9 @@ The deployment should now work correctly with proper SPA routing, security heade
 
 ## Build Process
 
-1. **Dependencies Installation**: `npm ci`
+1. **Dependencies Installation**: `npm install`
    - Installs all dependencies including devDependencies
-   - Faster and more reliable than `npm install` for CI/CD
+   - Works reliably across different Node versions
    - Uses package-lock.json if available
 
 2. **Build**: `npm run build`
@@ -118,9 +118,15 @@ The deployment should now work correctly with proper SPA routing, security heade
 
 ### "vite: not found" Error
 **Problem**: Vite command not available during build
-**Solution**: Ensure `npm ci` runs before build command
-- Build command should be: `npm ci && npm run build`
+**Solution**: Ensure `npm install` runs before build command
+- Build command should be: `npm install && npm run build`
 - Vite must be in devDependencies
+
+### "npm ci" Lock File Error
+**Problem**: `npm ci` requires package-lock.json but can't find it
+**Solution**: Use `npm install` instead
+- More compatible across different environments
+- Still uses package-lock.json if available
 
 ### Node Version Issues
 **Problem**: Node version mismatch
@@ -203,7 +209,7 @@ For additional help:
 
 ```toml
 [build]
-  command = "npm ci && npm run build"
+  command = "npm install && npm run build"
   publish = "dist"
 
 [build.environment]

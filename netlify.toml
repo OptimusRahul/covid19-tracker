@@ -1,6 +1,6 @@
 [build]
-  # Explicit install step to ensure all dependencies are installed
-  command = "npm ci && npm run build"
+  # Install dependencies and build
+  command = "npm install && npm run build"
   
   # Directory to publish (Vite default)
   publish = "dist"
