@@ -1,6 +1,6 @@
 [build]
-  # Install dependencies and build
-  command = "npm install && npm run build"
+  # Install dependencies and build using direct vite path
+  command = "npm install && ./node_modules/.bin/vite build"
   
   # Directory to publish (Vite default)
   publish = "dist"

@@ -48,7 +48,7 @@ NODE_OPTIONS="--max-old-space-size=4096"
 
 In Netlify dashboard, verify these settings:
 
-- **Build command**: `npm install && npm run build`
+- **Build command**: `npm install && ./node_modules/.bin/vite build`
 - **Publish directory**: `dist`
 - **Node.js version**: 22.x (set in netlify.toml)
 
@@ -110,8 +110,8 @@ The deployment should now work correctly with proper SPA routing, security heade
    - Works reliably across different Node versions
    - Uses package-lock.json if available
 
-2. **Build**: `npm run build`
-   - Runs `vite build` to create production bundle
+2. **Build**: `./node_modules/.bin/vite build`
+   - Directly calls the locally installed vite binary
    - Outputs to `dist/` directory
 
 ## Common Issues & Solutions
@@ -120,12 +120,16 @@ The deployment should now work correctly with proper SPA routing, security heade
 **Problem**: Vite command not available during build
 **Solutions**:
 1. **Dependencies**: Ensure `npm install` runs before build command
-   - Build command should be: `npm install && npm run build`
+   - Build command should be: `npm install && ./node_modules/.bin/vite build`
    - Vite must be in devDependencies
 
 2. **PATH Issue**: If dependencies are installed but vite still not found
-   - Use `npx vite build` instead of `vite build` in package.json
-   - This ensures locally installed vite is used
+   - Use direct path to vite binary: `./node_modules/.bin/vite build`
+   - Avoids PATH issues and version conflicts with npx
+
+3. **Module Resolution Issue**: If npx installs wrong vite version
+   - Use direct binary path instead of npx
+   - Prevents version conflicts between local and global installations
 
 ### "npm ci" Lock File Error
 **Problem**: `npm ci` requires package-lock.json but can't find it
@@ -214,7 +218,7 @@ For additional help:
 
 ```toml
 [build]
-  command = "npm install && npm run build"
+  command = "npm install && ./node_modules/.bin/vite build"
   publish = "dist"
 
 [build.environment]
