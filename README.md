@@ -2,6 +2,10 @@
 
 A modern, responsive COVID-19 dashboard built with React 18, TypeScript, and Tailwind CSS. This project has been completely redesigned with modern architecture patterns and working APIs.
 
+## 🌟 Live Demo
+
+**🚀 [View Live Application](https://covidupdates.netlify.app/)**
+
 ## ✨ Features
 
 - **Real-time COVID-19 Data**: Live statistics with auto-refresh
