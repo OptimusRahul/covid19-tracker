@@ -4,12 +4,9 @@
   
   # Directory to publish (Vite default)
   publish = "dist"
-  
-  # Node.js version
-  environment = { NODE_VERSION = "18" }
 
 [build.environment]
-  # Set NODE_ENV for production builds
+  NODE_VERSION = "18"
   NODE_ENV = "production"
 
 # SPA redirect rule - handles client-side routing
@@ -46,4 +43,4 @@
   [headers.values]
     Access-Control-Allow-Origin = "*"
     Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
-    Access-Control-Allow-Headers = "Content-Type, Authorization" 
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
