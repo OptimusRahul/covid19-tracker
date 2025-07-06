@@ -118,9 +118,14 @@ The deployment should now work correctly with proper SPA routing, security heade
 
 ### "vite: not found" Error
 **Problem**: Vite command not available during build
-**Solution**: Ensure `npm install` runs before build command
-- Build command should be: `npm install && npm run build`
-- Vite must be in devDependencies
+**Solutions**:
+1. **Dependencies**: Ensure `npm install` runs before build command
+   - Build command should be: `npm install && npm run build`
+   - Vite must be in devDependencies
+
+2. **PATH Issue**: If dependencies are installed but vite still not found
+   - Use `npx vite build` instead of `vite build` in package.json
+   - This ensures locally installed vite is used
 
 ### "npm ci" Lock File Error
 **Problem**: `npm ci` requires package-lock.json but can't find it
