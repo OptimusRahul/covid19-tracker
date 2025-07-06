@@ -7,8 +7,7 @@
 
 [build.environment]
   NODE_VERSION = "22"
-  NODE_ENV = "production"
-  # Force npm to install devDependencies
+  # NODE_ENV removed to allow devDependencies installation
   NODE_OPTIONS = "--max-old-space-size=4096"
 
 # SPA redirect rule - handles client-side routing

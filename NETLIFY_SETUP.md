@@ -39,10 +39,11 @@ REACT_APP_MAX_COMPARISON=3
 REACT_APP_ENABLE_EXPORT=true
 REACT_APP_ENABLE_SHORTCUTS=true
 REACT_APP_ENABLE_PWA=false
-NODE_ENV=production
 NODE_VERSION=22
 NODE_OPTIONS="--max-old-space-size=4096"
 ```
+
+**Note**: `NODE_ENV` is not set during build to ensure devDependencies are installed. Setting `NODE_ENV=production` would prevent tools like Vite from being installed.
 
 ## Build Settings
 
@@ -130,6 +131,10 @@ The deployment should now work correctly with proper SPA routing, security heade
 3. **Module Resolution Issue**: If npx installs wrong vite version
    - Use direct binary path instead of npx
    - Prevents version conflicts between local and global installations
+
+4. **DevDependencies Not Installed**: If NODE_ENV=production prevents devDependencies
+   - Remove `NODE_ENV = "production"` from netlify.toml build environment
+   - npm won't install devDependencies when NODE_ENV=production
 
 ### "npm ci" Lock File Error
 **Problem**: `npm ci` requires package-lock.json but can't find it
@@ -223,7 +228,6 @@ For additional help:
 
 [build.environment]
   NODE_VERSION = "22"
-  NODE_ENV = "production"
   NODE_OPTIONS = "--max-old-space-size=4096"
 ```
 
